@@ -20,6 +20,11 @@ cmb_flux = np.loadtxt("firas_monopole_spec_v1.txt")[:, 1]
 temp = 2.725
 intensity = black_body_spectrum(frequency*3e10, temp)
 
+# To find the wavelength at which the CMB peaks
+max_index = np.argmax(cmb_flux)
+max_wav = 1/frequency[max_index]
+print("Wavelength at which black body peaks (cm): ",max_wav)
+
 plt.title("CMB Monopole Spectrum")
 plt.xlabel("frequency(Hz)")
 plt.ylabel("CMB Flux(W / m^2 / Hz / sr)")
